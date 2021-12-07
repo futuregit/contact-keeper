@@ -14,7 +14,7 @@ import './App.css';
 const App = () => {
   return (
     <ContactState>
-      // Router must encompass entire app to use URL
+      {/* Router must encompass entire app to use URL */}
       <Router>
         <Fragment>
           <Navbar />
