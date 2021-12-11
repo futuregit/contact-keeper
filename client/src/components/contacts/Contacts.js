@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from "react";
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import ContactItem from "./ContactItem";
 import ContactContext from "../../context/contact/contactContext";
 
@@ -15,16 +15,21 @@ const Contacts = () => {
 
   return (
     <Fragment>
-      {filtered !== null
-        ? filtered.map((contact) => (
-            <ContactItem key={contact.id} contact={contact} />
-          ))
-        : contacts.map((contact) => (
-            <ContactItem key={contact.id} contact={contact} />
-          ))}
-      {/* Prints out name for each array index.
+        {filtered !== null
+          ? filtered.map((contact) => (
+              <div key={contact.id} classNames="item">
+                <ContactItem contact={contact} />
+              </div>
+            ))
+          : contacts.map((contact) => (
+            <div key={contact.id} classNames="item">
+              <ContactItem contact={contact} />
+            </div>
+            ))}
+        {/* Prints out name for each array index.
                 Common source of error is adding brackets instead of parethesis
                 for the JSX element. */}
+    
     </Fragment>
   );
 };
