@@ -3,15 +3,20 @@ import PropTypes from "prop-types";
 // A <Link> is an element that lets the user navigate to another page by clicking or tapping on it. In react-router-dom, a <Link> renders an accessible <a> element with a real href that points to the resource it's linking to.
 import { Link } from "react-router-dom";
 import AuthContext from "../../context/auth/authContext";
+import ContactContext from "../../context/contact/contactContext";
 
 // Navbar will be taking 2 destructered props
 const Navbar = ({ title, icon }) => {
   const authContext = useContext(AuthContext);
+  const contactContext = useContext(ContactContext)
+
+  const { clearContacts } = contactContext;
 
   const { isAuthenticated, logout, user } = authContext;
 
   const onLogout = () => {
     logout();
+    clearContacts();
   };
 
   const authLinks = (
